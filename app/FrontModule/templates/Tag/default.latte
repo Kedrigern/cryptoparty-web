@@ -1,0 +1,42 @@
+{**
+ * My Application layout template.
+ *
+ * @author: Ondřej Profant
+ *
+ * @param string   $basePath web base path
+ * @param Nette\Database\Selection $mostUsed
+ * @param Nette\Database\Selection $newest
+ * @param Nette\Database\Selection $tags
+ *}
+
+{block content}
+<h1 n:block="title">Tagy</h1>
+
+<div class="row">
+	<div class="span4">
+        <h2>Nejpoužívanější</h2>
+		<ul n:inner-foreach="$mostUsed as $tag" class="unstyled">
+			<li>
+				{$tag->count}&times;
+				<a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
+			</li>
+		</ul>
+	</div>
+    <div class="span4">
+        <h2>Nejnovější</h2>
+	    <ul n:inner-foreach="$newest as $tag" class="unstyled">
+		    <li>
+			    {$tag->created|date:'%d. %m. %y'}
+			    <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
+		    </li>
+	    </ul>
+    </div>
+    <div class="span4">
+        <h2>Vše</h2>
+        <p n:inner-foreach="$tags as $tag">
+            <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>{sep}, {/sep}
+        </p>
+    </div>
+</div>
+<br />
+{/block}

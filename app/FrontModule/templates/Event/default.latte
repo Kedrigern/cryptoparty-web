@@ -1,0 +1,17 @@
+{block content}
+    <p>
+        Cryptoparty je komunitní akce, proto jí může zorganizovat každý! Jak se dočtete v cryptoparty handbooku. Zde jsou generovány informace z profilů jednotlivých subkomunit.
+    </p>
+{control srazy}
+<br >{/block}
+
+{block head}
+	{include #parent}
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.css" />
+{/block}
+
+{block scripts}
+	{include #parent}
+	<script src="http://cdn.leafletjs.com/leaflet-0.6.2/leaflet.js"></script>
+	<script src="{$basePath}/js/srazy.js"></script>
+{/block}

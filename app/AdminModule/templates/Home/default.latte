@@ -1,0 +1,59 @@
+{block content}
+<div class="container">
+<h1 n:block="title">Admin home</h1>
+
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs">
+			<li class="active">
+				<a href="#tab-web" data-toggle="tab">Web</a>
+			</li>
+			<li>
+				<a href="#tab-db" data-toggle="tab">Databáze</a>
+			</li>
+			<li>
+				<a href="#tab-fs" data-toggle="tab">Soubory</a>
+			</li>
+			<li>
+				<a href="#tab-php" data-toggle="tab">PHP info</a>
+			</li>
+		</ul>
+		<div class="tab-content" style="min-height: 450px">
+			<div class="tab-pane active" id="tab-web">
+				<h4>Souhrn</h4>
+				<dl class="dl-horizontal">
+					<dt>Článků:</dt>
+					<dd>{$articles}</dd>
+                    <dt>Materiálů:</dt>
+                    <dd>{$resources}</dd>
+                    <dt>Autorů:</dt>
+                    <dd>{$authors}</dd>
+                    <dt>Tagů:</dt>
+                    <dd>{$tags}</dd>
+				</dl>
+			</div>
+			<div class="tab-pane" id="tab-fs">
+				Souhrné informace o souborech...
+			</div>
+			<div class="tab-pane" id="tab-db">
+				Souhrné informace o DB
+				{foreach $db_info as $table_name => $structure}<h6>{$table_name}</h6>
+					<table class="table table-bordered">
+						<tr n:foreach="$structure as $r">
+							<td n:foreach="$r as $c">{$c}</td>
+						</tr>
+					</table>
+				{/foreach}
+			</div>
+			<div class="tab-pane" id="tab-php">
+				<h6>Version</h6>
+				<pre>{$php_version}</pre>
+				<h6>Extensions</h6>
+				<ul>
+					<li n:foreach="$php_extensions as $e">{$e}</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+{/block}

@@ -1,0 +1,28 @@
+{**
+ * AdminModule:Article default.latte template
+ *
+ * @author Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @user Nette\Security\User
+ *}
+
+{block content}
+<div class="container">
+<h1 n:block="title">
+    Crypto zápisky
+</h1>
+
+<p>
+	<a n:href="add" title="Přidat nový článek" class="btn btn-primary">
+		<i class="icon icon-white icon-plus"></i>
+		Přidat nový článek
+	</a>
+</p>
+</div>
+
+<div class="container-fluid">
+{control articleGrid}
+</div>
+{/block}

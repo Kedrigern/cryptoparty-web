@@ -1,0 +1,41 @@
+{**
+ * My Application Homepepage:view layout template.
+ *
+ * @author Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @param Nette\Database\ActiveRow $article
+ *}
+
+{block content}
+<h1 n:block="title">{$article->title}</h1>
+<div class="row">
+	<div class="span8">
+		<br />
+        <strong>
+	        {!$article->perex_html}
+        </strong>
+		<br />
+		{!$article->text_html}
+		<br >    </div>
+	<div class="span4">
+		<h2 class="span3 offset1">Info</h2>
+		<dl class="dl-horizontal">
+			<dt>Autor</dt>
+			<dd>{$article->author->name}</dd>
+			<dt>Publikováno</dt>
+			<dd>{$article->date_published|date:"%d. %m. %Y"}</dd>
+			<dt>Naposledy změněno</dt>
+			<dd>{$article->date_modified|date:"%d. %m. %Y"}</dd>
+			<dt>Tagy</dt>
+			<dd n:inner-foreach="$article->related('tag_rel_article') as $tag">
+				{var $tag = $tag->tag}
+                <a title="{$tag->description}" n:href="Tag:view $tag->id">{$tag->name}</a>{sep}, {/sep}
+			</dd>
+			<dt></dt>
+			<dd><a n:href="tag:">Všechny tagy</a></dd>
+		</dl>
+	</div>
+</div>
+{/block}

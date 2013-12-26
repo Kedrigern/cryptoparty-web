@@ -1,0 +1,74 @@
+{**
+ * My Application Homepage layout template.
+ *
+ * @author Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @param Nette\Database\Selection $mostUsed
+ * @param Nette\Database\Selection $newest
+ * @param Nette\Database\Selection $tags
+ *}
+
+{block title}
+Homepage
+{/block}
+
+{block content}
+
+<h1>Info o webu</h1>
+<p>CryptoParty se zabývá popularizováním a&nbsp;vyučováním základních znalostí kryptografie, které mají být uživateli užitečné v&nbsp;oblasti zabezpečení dat,
+	komunikace a&nbsp;dalších podstatných aspektů v&nbsp;online i&nbsp;offline světě, na které je třeba v&nbsp;informační době brát zřetel.</p>
+<br />
+
+<div class="row">
+	<div class="span9">
+        <h1>Crypto zápisky</h1>
+		<br />
+		
+		{foreach $articles as $a}
+        <h2>
+	        <a n:href="Homepage:view $a->id">{$a->title}</a> <small>{$a->author->name}</small>
+        </h2>
+
+		{!$a->perex_html}
+
+        <small>
+            <p>
+                Zveřejněno: {$a->date_published|date:'%d. %m. %Y'};
+                Tagy:
+				{foreach $a->related('tag_rel_article') as $tags}
+					{var $tag = $tags->tag}
+                    <a title="{$tag->description}" n:href="Tag:view $tag->id">{$tag->name}</a>{sep}, {/sep}
+				{/foreach}
+            </p>
+        </small>
+        <hr />
+		{/foreach}
+    </div>
+	<div class="span3">
+		<h1>Tagy</h1>
+		<a n:href="Tag:"> <i class="icon-tags"></i> všechny</a>
+		<h3>Nejpoužívanější</h3>
+        <ul n:inner-foreach="$mostUsed as $tag" class="unstyled">
+            <li>
+					{$tag->count}&times;
+                <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
+            </li>
+        </ul>
+        <h3>Nejnovější</h3>
+        <ul n:inner-foreach="$newest as $tag" class="unstyled">
+            <li>
+				{$tag->created|date:'%d. %m. %y'}
+                <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
+            </li>
+        </ul>
+		<h1>Statistika</h1>
+		<ul class="unstyled">
+			<li>{$articlesC} zápisků</li>
+			<li>{$resourceC} materiálů</li>
+			<li>{$authorC} autorů</li>
+		</ul>
+	</div>
+</div>
+{/block}

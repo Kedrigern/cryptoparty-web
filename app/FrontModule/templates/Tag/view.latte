@@ -1,0 +1,61 @@
+{**
+ * My Application Tag:view layout template.
+ *
+ * @author: Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @param Nette\Database\ActiveRow $tag
+ *}
+
+{block title}
+{$tag->name} (tag)
+{/block}
+
+{block content}
+<h1>
+    {$tag->name}
+</h1>
+
+<p>Popis:  {$tag->description}</p>
+<p>Vytvořen: {$tag->created|date:"%d. %m. %Y"}</p>
+
+{if count($articles) == 0}
+<p>
+    Žádný článek nemá přiřazený tento <abbr title="štítek">tag</abbr>.
+</p>
+{else}
+<h3>Články s tímto tagem</h3>
+<ul>
+    <li n:foreach="$articles as $article">
+        <a n:href="Homepage:view $article->id" title="{$article->perex_html|striptags|trim:30}">
+            {$article->title}
+        </a>
+    </li>
+</ul>
+{/if}
+
+{if count($resources) == 0}
+<p>
+    Žádný zdroj nemá přiřazený tento <abbr title="štítek">tag</abbr>.
+</p>
+	{else}
+<h3>Zdroje s tímto tagem</h3>
+<ul>
+    <li n:foreach="$resources as $resource">
+        <a n:href="Resource:default#resource-$resource->id" title="{$resource->description}">
+			{$resource->name}
+        </a>
+    </li>
+</ul>
+{/if}
+
+<h3>Všechny tagy</h3>
+	<p><a n:href="default">všechny</a></p>
+	<p>
+		{foreach $tags as $tag}
+			<a n:href="Tag:view $tag->id" title="{$tag->name}">{$tag->name}</a>{sep}, {/sep}
+		{/foreach}
+	</p>
+
+{/block}

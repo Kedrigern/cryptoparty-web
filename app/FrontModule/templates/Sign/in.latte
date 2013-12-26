@@ -1,0 +1,31 @@
+{var $robots = noindex}
+
+{block #content}
+
+<h1 n:block=title>Přihlášení</h1>
+
+
+<div class="tabbable tabs-below ">
+
+    <div class="tab-content">
+        <div class="tab-pane sign-form active" id="signin">
+            {control signInForm}
+        </div>
+        <div class="tab-pane sign-form" id="signup">
+            {control signUpForm}
+        </div>
+        <div class="tab-pane sign-form" id="newPasswd">
+            {control sendNewPasswd}
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#signin" data-toggle="tab">Přihlášení</a></li>
+        <li><a href="#signup" data-toggle="tab">Registrace</a></li>
+        <li><a href="#newPasswd" data-toggle="tab">Zaslání nového hesla</a></li>
+    </ul>
+
+</div>
+
+{/block}
+

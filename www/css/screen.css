@@ -1,0 +1,41 @@
+#ajax-spinner {
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
+}
+
+a[href^="error:"] {
+	background: red;
+	color: white;
+}
+
+form tr, form td {
+	vertical-align: top;
+	font-weight: normal;
+}
+
+form .required label {
+	font-weight: bold;
+}
+
+form .error {
+	color: #D00;
+	font-weight: bold;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+table .table-center {
+    text-align: center;
+    margin: auto;
+}
+
+.sign-form {
+    min-height: 330px;
+}

@@ -1,0 +1,28 @@
+{**
+ * AdminModule:Resource default.latte template
+ *
+ * @author Ondřej Profant
+ *
+ * @param string   $basePath web base path
+ * @user Nette\Security\User
+ *}
+
+{block content}
+<div class="container">
+<h1 n:block="title">
+    Admin: materiály
+</h1>
+
+<p>
+    <a n:href="add" class="btn">
+        <i class="icon-plus"></i>
+        Přidání nového matriálu
+    </a>
+</p>
+</div>
+
+<div class="container-fluid">
+{control resourceGrid}
+</div>
+
+{/block}

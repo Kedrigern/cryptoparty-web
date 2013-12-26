@@ -1,0 +1,53 @@
+{**
+ * My Application Resource:default layout template.
+ *
+ * @author: Ondřej Profant
+ *
+ * @param string   $basePath web base path
+ * @param \Nette\Database\Selection $resources
+ *}
+
+{block content}
+
+<p>Cryptoparty je komunitní projekt, proto omluvte občasnou neúplnost materiálů. Uvítáme jakoukoliv konstruktivní kritiku či vylepšení. Z toho důvodu také sdílíme i editovatelnou podobu (zdrojové kódy či editovatelný svobodný formát). Čili se nestyďte vzít naše materiály, vylepšit je a zaslat nám novější verzi, ať slouží širšímu publiku.</p>
+
+<table class="table table-bordered table-condensed table-striped">
+    <caption>Soubory ke stažení</caption>
+    <thead>
+    <tr>
+        <th>Jméno</th>
+        <th>Popis</th>
+        <th><i class="icon-eye-open" title="Zobrazení/binární soubor"></i></th>
+        <th><i class="icon-pencil" title="Zdrojový kód/editovatelná podoba"></i></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr n:foreach="$resources as $r" id="resource-{$r->id}">
+        <td>
+            <strong>
+                {$r->name}
+            </strong>
+        </td>
+        <td>{$r->description}</td>
+        <td>
+            <a href="{$r->link_bin}">
+                <img class="icon" src="{$basePath}/images/filetypes/{$r->filetype_bin|filetype}.png"/>
+            </a>
+        </td>
+        <td>
+            <a href="{$r->link_src}">
+                <img class="icon" src="{$basePath}/images/filetypes/{$r->filetype_src|filetype}.png"/>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <th>Jméno</th>
+        <th>Popis</th>
+        <th><i class="icon-eye-open" title="Zobrazení/binární soubor"></i></th>
+        <th><i class="icon-pencil" title="Zdrojový kód/editovatelná podoba"></i></th>
+    </tr>
+    </tfoot>
+</table>
+{/block}

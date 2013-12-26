@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="span2">
+	<h4>Komunita</h4>
+    </div>
+    <div class="span6">
+        <h4>Nejbližší</h4>
+    </div>
+    <div class="span4">
+        <h4>Obecné info</h4>
+    </div>
+</div>
+
+{foreach $events as $event => $name}
+<div class="row">
+    <div class="span1">
+        <h3>{$name}</h3>
+    </div>
+    <div class="span6" id="current-{$event}">
+        <br /><br />
+		Není plánována :(
+        <div id='map-{$event}' class="span5" style="height: 250px;"></div>
+    </div>
+    <div class="span4">
+        <dl>
+            <dt>Název:</dt>
+            <dd id="title-{$event}"></dd>
+            <dt>Popis:</dt>
+            <dd id="desc-{$event}"></dd>
+            <dt>Správce:</dt>
+            <dd id="adminName-{$event}"></dd>
+        </dl>
+    </div>
+</div>
+<div class="row">
+    <hr />
+</div>
+{/foreach}
+<div class="row">
+    <p>
+        Informace jsou generovány z&nbsp;portálu <a href="srazy.info" title="Srazy.info - domov pro opakované srazy">Srazy.info</a>,
+        pro mapy jsou využity podklady <a href="http://www.openstreetmap.org/" title="Otevřená wiki-mapa světa">OpenStreetMap</a> skrz knihovnu
+        <a href="http://leafletjs.com/" title="An Open-Source JavaScript Library for Mobile-Friendly Interactive Maps">Leaflet</a>.
+    </p>
+</div>
+
+<script>
+	// handover to JS scripts
+	var srazyEvents = {$events};
+</script>

@@ -1,0 +1,92 @@
+{**
+ * AdminModule:Resource add.latte template
+ *
+ * @author Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @user Nette\Security\User
+ *}
+
+{block content}
+<div class="container">
+<h1 n:block="title">Přidání článku</h1>
+	{form editForm}
+    <div class="row">
+		{control $form errors}
+    </div>
+
+    <div class="row">
+        <div class="span10">
+            <div class="row-fluid">
+                <div class="span1">{label title /}</div>
+                <div class="span3">{input title}</div>
+                <div class="span1">{label author_id /}</div>
+                <div class="span4">{input author_id} <span class="pull-right">{input visible}</span></div>
+                <div class="span1">{label visible /}</div>
+                <div class="span1"></div>
+            </div>
+            <div class="row">
+                <div class="span5">{label perex_md /}</div>
+                <div class="span5">Náhled <i class="icon icon-eye-open"></i></div>
+            </div>
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="toolbar-perex" class="wmd-toolbar"></div>
+                    <br />
+		            {input perex_md rows => 9, class => input-xlarge}
+                </div>
+                <div class="span7 well" id="preview-perex"></div>
+            </div>
+
+        </div>
+        <div class="span1">
+            <div class="row-fluid">
+                <div class="span1">{label tags /}</div>
+            </div>
+            <div class="row-fluid">
+				{input tags class => input-medium, size => 15}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span6">{label text_md /}</div>
+        <div class="span6">Náhled <i class="icon icon-eye-open"></i></div>
+    </div>
+    <div class="row-fluid">
+        <div class="span6">
+            <div id="toolbar-text" class="wmd-toolbar"></div>
+            <br />
+	        {input text_md rows => 17, class => input-xxlarge}
+        </div>
+        <div class="span6 well" id="preview-text"></div>
+    </div>
+    <div class="row form-actions">
+        <div class="span1">
+			{input send}
+        </div>
+        <div class="span1">
+		    <a n:href="default" class="btn btn-warning btn-large">Zrušit</a>
+        </div>
+    </div>
+	{/form}
+</div>
+{/block}
+
+{block head}
+{include #parent}
+<link type="text/css" rel="stylesheet" href="{$basePath}/wmd/wmd.css"/>
+{/block}
+
+{block scripts}
+{include #parent}
+<!-- WMD -->
+<script src="{$basePath}/wmd/showdown.js"></script>
+<script src="{$basePath}/wmd/wmd.js"></script>
+
+<!-- jQuery listener for syntax highlight -->
+<script>
+    new WMD("input-perex", "toolbar-perex", { preview: "preview-perex" });
+    new WMD("input-text", "toolbar-text", { preview: "preview-text" });
+</script>
+{/block}

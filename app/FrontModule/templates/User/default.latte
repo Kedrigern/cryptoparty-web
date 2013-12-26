@@ -1,0 +1,23 @@
+{**
+ * My Application User:default layout template.
+ *
+ * @author Ondřej Profant, 2013
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @param Nette\Database\ActiveRow $userRow
+ *}
+
+{block content}
+	<h1 n:block="title">Uživatel - základní údaje</h1>
+	<dl>
+		<dt>Mail:</dt>
+		<dd>{$userRow->mail}</dd>
+		<dt>Role (oprávnění):</dt>
+		<dd>{foreach $user->roles as $r}{$r}{/foreach}</dd>
+		<dt>Učet založen:</dt>
+		<dd>{$userRow->created|date:"%d. %m. %Y"}</dd>
+		<dt>Poslední změna údajů:</dt>
+		<dd>{$userRow->modified|date:"%d. %m. %Y: %H:%M"}</dd>
+	</dl>
+{/block}

@@ -1,0 +1,19 @@
+{**
+ * AdminModule:Resource edit.latte template
+ *
+ * @author Ondřej Profant
+ * @package Cryptoparty
+ *
+ * @param string   $basePath web base path
+ * @user Nette\Security\User
+ *}
+
+{block content}
+<div class="container">
+<h1 n:block="title">
+    Admin: {$resource->name}
+</h1>
+
+{control editForm}
+</div>
+{/block}

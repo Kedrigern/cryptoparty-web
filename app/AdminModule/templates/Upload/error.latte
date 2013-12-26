@@ -1,0 +1,9 @@
+{block content}
+
+<h1 n:block="title">Admin: Upload: Chyba</h1>
+
+<p>Došlo k následujícím chybám:</p>
+
+<div n:foreach="$errors as $er" class="alert alert-error">{$er->getMessage()}</div>
+
+{/block}
