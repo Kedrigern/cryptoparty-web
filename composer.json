@@ -1,0 +1,21 @@
+{
+	"name": "kedrigern/cryptoparty-web",
+	"description": "",
+	"homepage": "https://github.com/Kedrigern/cryptoparty-web",
+	"type": "project",
+	"license": ["GPL-3.0"],
+	"authors": [
+		{
+			"name": "Ondřej Profant",
+			"homepage": "https://github.com/Kedrigern"
+		}
+	],
+	"require": {
+		"php": ">= 5.3.0",
+		"nette/nette": "v2.1.0-RC4",
+		"dg/adminer-custom": "1.*" 
+	},
+	"require-dev": {
+		"nette/tester": "@dev"
+	}
+}
