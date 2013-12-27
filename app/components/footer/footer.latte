@@ -1,39 +1,52 @@
- <div class="row well">
-    <footer>
-        <div class="span2">
-            <img src="{$basePath}/images/logo.gif" alt="logo" title="Cryptoparty logo"/>
-        </div>
-        <div class="span4">
-            <small>
-                <h6>Copyleft</h6>
-                Copyleft Cryptoparty všechna práva vyhlazena, sdílejte a&nbsp;šiřte dále.<br/>
-                Copyleft Cryptoparty all rights are free, share it!<br/>
-                <h6>Kontakt</h6>
-              	<p>adam.skorepa &lt;&gt; pirati.cz</p>
-                <p>ondrej.profant &lt;&gt; pirati.cz</p>
-            </small>
-        </div>
-        <div class="span3">
-            <h6>Odkazy</h6>
-            <ul class="unstyled">
-                <li><a href="https://cryptoparty.org/wiki/CryptoParty">Cryptoparty.org</a></li>
-                <li>
-                    <a href="http://srazy.info/cryptoparty/terminy/">
-                    Srazy.info - informace o akcích
-                    </a>
-                </li>
-                <li>
-                {if $user->isLoggedIn()}
-                    <a href="{plink :Front:Sign:out}">Logout</a>
-                    {else}
-                    <a href="{plink :Front:Sign:in}">Login</a>
-                {/if}
-                </li>
-            </ul>
-        </div>
-        <div class="span2" style="text-align: center;">
-            <a href="https://pirati.cz"><img src="{$basePath}/images/pirati_plachta_s_okrajem.png" alt="pirátské logo" title="Piráti logo"/></a><br />
-            <small>pod záštitou <a href="https://pirati.cz">Pirátské strany</a></small>
-        </div>
-    </footer>
+<div class="row well">
+	<footer>
+		<div class="span2">
+			<img src="{$basePath}/images/logo.gif" alt="logo" title="Cryptoparty logo"/>
+		</div>
+		<div class="span4">
+			<small>
+				<h6>Copyleft</h6>
+				Copyleft Cryptoparty všechna práva vyhlazena, sdílejte a&nbsp;šiřte dále.<br/>
+				Copyleft Cryptoparty all rights are free, share it!<br/>
+				<h6>Kontakt</h6>
+
+				<p>adam.skorepa &lt;&gt; pirati.cz</p>
+
+				<p>ondrej.profant &lt;&gt; pirati.cz</p>
+			</small>
+		</div>
+		<div class="span3">
+			<h6>Odkazy</h6>
+			<ul class="unstyled">
+				<li><a href="https://cryptoparty.org/wiki/CryptoParty">Cryptoparty.org</a></li>
+				<li>
+					<a href="http://srazy.info/cryptoparty/terminy/">
+						Srazy.info - informace o akcích
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/Kedrigern/cryptoparty-web">
+						Zdrojové kódy webu
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/Kedrigern/cryptoparty-web/issues">
+						Hlášení chyb na webu
+					</a>
+				</li>
+				<li>
+					{if $user->isLoggedIn()}
+						<a href="{plink :Front:Sign:out}">Logout</a>
+					{else}
+						<a href="{plink :Front:Sign:in}">Login</a>
+					{/if}
+				</li>
+			</ul>
+		</div>
+		<div class="span2" style="text-align: center;">
+			<a href="https://pirati.cz"><img src="{$basePath}/images/pirati_plachta_s_okrajem.png" alt="pirátské logo"
+			                                 title="Piráti logo"/></a><br/>
+			<small>pod záštitou <a href="https://pirati.cz">Pirátské strany</a></small>
+		</div>
+	</footer>
 </div>
