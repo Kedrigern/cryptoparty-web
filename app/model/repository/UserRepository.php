@@ -5,7 +5,7 @@
 
 class UserRepository extends BaseRepository
 {
-    /** @param \Nette\Database\Connection  */
+    /** @param \Nette\Database\Context $conn  */
     public function __construct( \Nette\Database\Context $conn )
     {
         parent::__construct($conn, 'user');
@@ -13,6 +13,7 @@ class UserRepository extends BaseRepository
 
     /**
      * @param string $mail
+     * @return bool|mixed|IRow
      */
     public function GetByMail($mail)
     {
@@ -54,13 +55,14 @@ class UserRepository extends BaseRepository
             ->select('id')
             ->where('mail = ?', $mail)
             ->count();
-        if( $i > 0 ) return true;
-        return false;
+        if( $i > 0 ) return false;
+        return true;
     }
 
     /**
      * @param string $mail
      * @param string $password
+     * @return bool|int|IRow
      */
     public function registration($mail, $password)
     {

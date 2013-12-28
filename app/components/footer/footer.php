@@ -4,17 +4,19 @@
  * @package Cryptoparty
  */
 
+use Nette\Security\User;
+
 class Footer extends \Nette\Application\UI\Control
 {
 	/**
-	 * @var \Nette\Security\User
+	 * @var User
 	 */
 	protected $user;
 
 	/**
-	 * @param \Nette\Security\User $user
+	 * @param User $user
 	 **/
-	public function __construct($user)
+	public function __construct(User $user)
     {
         $this->user = $user;
     }

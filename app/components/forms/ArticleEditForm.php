@@ -4,32 +4,33 @@
  * @package Cryptoparty
  */
 
-use Nette\Application\UI\Form,
+use Cryptoparty,
+	Nette\Application\UI\Form,
 	dflydev\markdown\MarkdownParser;
 
 class ArticleEditForm extends Form
 {
 	/**
-	 * @var \Cryptoparty\ArticleRepository $aRep
+	 * @var ArticleRepository $aRep
 	 **/
 	private $articleRep;
 
 	/**
-	 * @var \Cryptoparty\AuthorRepository
+	 * @var AuthorRepository
 	 */
 	private $authorRep;
 
 	/**
-	 * @var \Cryptoparty\TagRepository
+	 * @var TagRepository
 	 */
 	private $tagRep;
 
 	/**
-	 * @param \Cryptoparty\ArticleRepository $aRep
-	 * @param \Cryptoparty\AuthorRepository $authRep
-	 * @param \Cryptoparty\TagRepository $tRep
+	 * @param ArticleRepository $aRep
+	 * @param AuthorRepository $authRep
+	 * @param TagRepository $tRep
 	 **/
-	public function __construct( \Cryptoparty\ArticleRepository $aRep, \Cryptoparty\AuthorRepository $authRep, \Cryptoparty\TagRepository $tRep )
+	public function __construct( ArticleRepository $aRep, AuthorRepository $authRep, TagRepository $tRep )
 	{
 		parent::__construct();
 		$this->articleRep = $aRep;
@@ -59,6 +60,9 @@ class ArticleEditForm extends Form
 		$this->onSuccess[] = $this->editFormSubmit;
 	}
 
+	/**
+	 * @param Form $form
+	 */
 	public function editFormSubmit(Form $form)
 	{
 		$values = $form->getValues();

@@ -4,19 +4,20 @@
  * @package Cryptoparty
  */
 
-use Nette\Application\UI\Form;
+use Cryptoparty,
+	Nette\Application\UI\Form;
 
 class SignInForm extends Form
 {
     /**
-     * @var \Cryptoparty\UserRepository
+     * @var UserRepository
      **/
     private $userRep;
 
     /**
-     * @param \Cryptoparty\UserRepository $userRep
+     * @param UserRepository $userRep
      **/
-    public function __construct(\Cryptoparty\UserRepository $userRep)
+    public function __construct(UserRepository $userRep)
     {
         parent::__construct();
 
@@ -67,7 +68,9 @@ class SignInForm extends Form
     }
 
     /**
-     * @param \Nette\Application\UI\Form $form
+     * @param Form $form
+     * @return bool
+     * @todo check functionality
      */
     public function mailExists(Form $form)
     {

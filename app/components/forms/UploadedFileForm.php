@@ -4,14 +4,23 @@
  * @package Cryptoparty
  */
 
-use Nette\Application\UI\Form;
-use \Nette\Utils\Html;
+use Cryptoparty,
+	Nette\Application\UI\Form,
+	Nette\Utils\Html,
+	Nette\Forms\Controls\SubmitButton;
 
 class UploadedFileForm extends Form
 {
-    protected $uploadManager;
+	/**
+	 * @var UploadManager
+	 */
+	protected $uploadManager;
 
-    public function __construct(\Cryptoparty\UploadManager $um, $id)
+	/**
+	 * @param UploadManager $um
+	 * @param int $id
+	 */
+	public function __construct(UploadManager $um, $id)
     {
         parent::__construct();
 
@@ -62,9 +71,9 @@ class UploadedFileForm extends Form
     }
 
     /**
-     * @param \Nette\Forms\Controls\SubmitButton $button
+     * @param SubmitButton $button
      */
-    public function update(\Nette\Forms\Controls\SubmitButton $button) {
+    public function update(SubmitButton $button) {
         $values = $button->form->getValues();
 
         if( intval($values->path->size) === 0 ) {
@@ -83,9 +92,9 @@ class UploadedFileForm extends Form
     }
 
     /**
-     * @param \Nette\Forms\Controls\SubmitButton $button
+     * @param SubmitButton $button
      */
-    public function delete(\Nette\Forms\Controls\SubmitButton $button) {
+    public function delete(SubmitButton $button) {
         $values = $button->form->getValues();
 
         $this->uploadManager->delete( $values->id );

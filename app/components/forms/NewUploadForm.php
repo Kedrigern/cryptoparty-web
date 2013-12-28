@@ -3,19 +3,20 @@
  * @author Ondřej Profant, 2013
  */
 
-use Nette\Application\UI\Form;
+use Cryptoparty,
+	Nette\Application\UI\Form;
 
 class NewUploadForm extends Form
 {
     /**
-     * @var \Cryptoparty\UploadManager
+     * @var UploadManager
      **/
     protected  $uploadManager;
 
     /**
-     * @param \Cryptoparty\UploadManager $um
+     * @param UploadManager $um
      **/
-    public function __construct( \Cryptoparty\UploadManager $um )
+    public function __construct(UploadManager $um )
     {
         parent::__construct();
 
@@ -34,9 +35,9 @@ class NewUploadForm extends Form
     }
 
     /**
-     * @param \Nette\Application\UI\Form $form
+     * @param Form $form
      **/
-    public function add(\Nette\Application\UI\Form $form)
+    public function add(Form $form)
     {
         $values = $form->getValues();
 

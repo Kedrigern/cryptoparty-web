@@ -13,7 +13,7 @@ class RegistrationForm extends Form
     private $userRep;
 
     /**
-     * @param UserRepository $userRep
+     * @param \Cryptoparty\UserRepository $rep
      **/
 	public function __construct( \Cryptoparty\UserRepository $rep )
 	{

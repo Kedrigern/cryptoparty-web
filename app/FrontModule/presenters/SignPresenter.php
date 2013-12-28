@@ -1,6 +1,7 @@
 <?php namespace App\FrontModule;
 
-use Nette\Application\UI;
+use Cryptoparty\Form,
+	Nette\Application\UI;
 
 /**
  * Sign in/out presenters.
@@ -12,6 +13,11 @@ class SignPresenter extends \App\BasePresenter
 	 */
 	public $repository;
 
+	public function renderIn()
+	{
+		$this->template->var = boolval($this->repository->isAvailable('ondrej.profant@gmail.com'));
+	}
+
     public function actionOut()
 	{
 		$this->getUser()->logout();
@@ -21,28 +27,28 @@ class SignPresenter extends \App\BasePresenter
 
     /**
      * Sign-in form factory.
-     * @return \Cryptoparty\Form\SignInForm
+     * @return Form\SignInForm
      */
     protected function createComponentSignInForm()
     {
-        return new \Cryptoparty\Form\SignInForm( $this->repository );
+        return new Form\SignInForm( $this->repository );
     }
 
     /**
      * Sign-up form factory.
-     * @return \Cryptoparty\Form\RegistrationForm
+     * @return Form\RegistrationForm
      */
     protected function createComponentSignUpForm()
     {
-        return new \Cryptoparty\Form\RegistrationForm( $this->repository );
+        return new Form\RegistrationForm( $this->repository );
     }
 
     /**
      * New password form factory.
-     * @return \Cryptoparty\Form\NewPasswdForm
+     * @return Form\NewPasswdForm
      */
     protected function createComponentSendNewPasswd()
     {
-        return new \Cryptoparty\Form\NewPasswdForm( $this->repository );
+        return new Form\NewPasswdForm( $this->repository );
     }
 }

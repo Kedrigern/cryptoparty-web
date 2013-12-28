@@ -4,31 +4,32 @@
  * @package Cryptoparty
  */
 
-use Nette\Application\UI\Form;
+use Cryptoparty,
+	Nette\Application\UI\Form;
 
 class ResourceEditForm extends Form
 {
 	/**
-	 * @var \Cryptoparty\ResourceRepository $aRep
+	 * @var ResourceRepository $aRep
 	 **/
 	private $resourceRep;
 
 	/**
-	 * @var \Cryptoparty\AuthorRepository
+	 * @var AuthorRepository
 	 */
 	private $authorRep;
 
 	/**
-	 * @var \Cryptoparty\TagRepository
+	 * @var TagRepository
 	 */
 	private $tagRep;
 
 	/**
-	 * @param \Cryptoparty\ResourceRepository $aRep
-	 * @param \Cryptoparty\AuthorRepository $authRep
-	 * @param \Cryptoparty\TagRepository $tRep
+	 * @param ResourceRepository $rRep
+	 * @param AuthorRepository $authRep
+	 * @param TagRepository $tRep
 	 **/
-	public function __construct( \Cryptoparty\ResourceRepository $rRep, \Cryptoparty\AuthorRepository $authRep, \Cryptoparty\TagRepository $tRep )
+	public function __construct( ResourceRepository $rRep, AuthorRepository $authRep, TagRepository $tRep )
 	{
 		parent::__construct();
 		$this->resourceRep = $rRep;
@@ -70,6 +71,9 @@ class ResourceEditForm extends Form
 
 	}
 
+	/**
+	 * @param Form $form
+	 */
 	public function editSuccess(Form $form)
 	{
 		$values = $form->getValues();

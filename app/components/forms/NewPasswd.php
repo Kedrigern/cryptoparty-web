@@ -4,7 +4,8 @@
  * @package Cryptoparty
  */
 
-use Nette\Application\UI\Form;
+use Cryptoparty,
+	Nette\Application\UI\Form;
 
 class NewPasswdForm extends Form
 {
@@ -14,9 +15,9 @@ class NewPasswdForm extends Form
     private $userRep;
 
     /**
-     * @param UserRepository $userRep
+     * @param UserRepository $rep
      **/
-    public function __construct( \Cryptoparty\UserRepository $rep )
+    public function __construct( UserRepository $rep )
     {
         parent::__construct();
 
@@ -39,7 +40,10 @@ class NewPasswdForm extends Form
         $this->onSuccess[] = $this->newPasswdSucceeded;
     }
 
-    public function newPasswdSucceeded(Form $form)
+	/**
+	 * @param Form $form
+	 */
+	public function newPasswdSucceeded(Form $form)
     {
         $values = $form->getValues();
         if( strtolower($values->antispam) != 'bob' ) {

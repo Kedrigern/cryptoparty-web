@@ -22,6 +22,10 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		}
 	}
 
+	/**
+	 * Check permissions. Via inheritance for every presenter in app.
+	 * @throws \Nette\Application\ForbiddenRequestException
+	 */
 	protected function checkPermissions()
 	{
 		if (!$this->user->isAllowed($this->name, $this->view)) {
