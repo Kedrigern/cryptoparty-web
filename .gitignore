@@ -6,6 +6,7 @@ vendor/*
 !vendor/others
 
 www/js/jquery.min.js
+www/js/netteForms.js
 www/bootstrap/*
 
 .DS_Store
