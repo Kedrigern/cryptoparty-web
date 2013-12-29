@@ -136,8 +136,9 @@ class ResourceNiftyGrid extends \NiftyGrid\Grid
 		$this->addButton('edit','edit')
 			->setLink( function ($row) use ($self) {return $self->presenter->link('edit',$row->id);})
 			->setLabel('Editovat')
-			->setIcon('icon-pencil')
-			->setText('Edit');
+			->setIcon('glyphicon glyphicon-pencil')
+			->setText('Edit')
+			->setClass('btn btn-default');
 
 		$this->setRowFormCallback(function($values){
 

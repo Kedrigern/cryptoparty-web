@@ -100,14 +100,16 @@ class ArticleNiftyGrid extends \NiftyGrid\Grid
 		$this->addButton('edit','edit')
 			->setLink( function ($row) use ($self) {return $self->presenter->link('edit',$row->id);})
 			->setLabel('Editovat')
-			->setIcon('icon-pencil')
+			->setClass('btn btn-default')
+			->setIcon('glyphicon glyphicon-pencil')
 			->setText('Edit');
 
 		$this->addButton("visible", '')
 			->setLink( function ($row) use ($self) {return $self->presenter->link( $row['visible'] == "1" ? 'unpublish!' : 'publish!', $row->id);})
 			->setLabel(function ($row) {return $row['visible'] == "1" ? "Skrýt" : "Publikovat";})
-			->setIcon( function ($row) {return $row['visible'] == "1" ? "icon-ok" : "icon-pause";})
-			->setText( function ($row) {return $row['visible'] == "1" ? 'Skrýt' : 'Publikovat'; });
+			->setIcon( function ($row) {return $row['visible'] == "1" ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-pause";})
+			->setText( function ($row) {return $row['visible'] == "1" ? 'Skrýt' : 'Publikovat'; })
+			->setClass('btn btn-default');
 
 		$this->setRowFormCallback(function($values){
 
