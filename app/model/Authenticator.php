@@ -21,9 +21,10 @@ class Authenticator extends \Nette\Object implements Security\IAuthenticator
     private static $salt = 'Sul nad zlato a i nad';
 
     /**
-     * @param \Nette\Database\Connection $database
+     * @param \Nette\Database\Context $database
+     * @param \Cryptoparty\UserRepository $userRep
      */
-    public function __construct(\Nette\Database\Connection $database, \Cryptoparty\UserRepository $userRep)
+    public function __construct(\Nette\Database\Context $database, \Cryptoparty\UserRepository $userRep)
 	{
 		$this->database = $database;
         $this->userRep = $userRep;

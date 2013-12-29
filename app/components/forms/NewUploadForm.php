@@ -11,12 +11,12 @@ class NewUploadForm extends Form
     /**
      * @var UploadManager
      **/
-    protected  $uploadManager;
+    protected $uploadManager;
 
     /**
-     * @param UploadManager $um
+     * @param Cryptoparty\UploadManager $um
      **/
-    public function __construct(UploadManager $um )
+    public function __construct(Cryptoparty\UploadManager $um )
     {
         parent::__construct();
 

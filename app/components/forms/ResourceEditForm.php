@@ -25,11 +25,11 @@ class ResourceEditForm extends Form
 	private $tagRep;
 
 	/**
-	 * @param ResourceRepository $rRep
-	 * @param AuthorRepository $authRep
-	 * @param TagRepository $tRep
+	 * @param Cryptoparty\ResourceRepository $rRep
+	 * @param Cryptoparty\AuthorRepository $authRep
+	 * @param Cryptoparty\TagRepository $tRep
 	 **/
-	public function __construct( ResourceRepository $rRep, AuthorRepository $authRep, TagRepository $tRep )
+	public function __construct( Cryptoparty\ResourceRepository $rRep, Cryptoparty\AuthorRepository $authRep, Cryptoparty\TagRepository $tRep )
 	{
 		parent::__construct();
 		$this->resourceRep = $rRep;

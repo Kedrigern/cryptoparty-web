@@ -26,11 +26,11 @@ class ArticleEditForm extends Form
 	private $tagRep;
 
 	/**
-	 * @param ArticleRepository $aRep
-	 * @param AuthorRepository $authRep
-	 * @param TagRepository $tRep
+	 * @param Cryptoparty\ArticleRepository $aRep
+	 * @param Cryptoparty\AuthorRepository $authRep
+	 * @param Cryptoparty\TagRepository $tRep
 	 **/
-	public function __construct( ArticleRepository $aRep, AuthorRepository $authRep, TagRepository $tRep )
+	public function __construct( Cryptoparty\ArticleRepository $aRep, Cryptoparty\AuthorRepository $authRep, Cryptoparty\TagRepository $tRep )
 	{
 		parent::__construct();
 		$this->articleRep = $aRep;

@@ -48,24 +48,30 @@ class RegistrationForm extends Form
      */
     public function RegistrationSucceeded(Form $form)
     {
-        $values = $form->getValues();
+		if(!$this->isAvailable($form) ) {
+			$form['mail']->addError('Tento mail je již použitý, nechte si zaslat nové heslo.');
+			return;
+		}
 
-        $this->userRep->registration($values->mail, $values->password);
+	    $values = $form->getValues();
 
-        $this->presenter->flashMessage("Registrace proběhla úspěšně", 'success');
+	    if(\Nette\Utils\Strings::lower(trim($values->antispam)) == 'bob') {
+            $this->userRep->registration($values->mail, $values->password);
+	        $this->presenter->flashMessage("Registrace proběhla úspěšně", 'success');
+		} else {
+		    $form['antispam']->addError('Špatná odpověď. Jedná se o klasickou kryptografickou dvojici...');
+		    return;
+		}
     }
 
     /**
      * @param \Nette\Application\UI\Form $form
+     * @return bool
      **/
-    public function isAvailable(Form $form)
+    public function isAvailable(\Nette\Application\UI\Form $form)
     {
         $values = $form->getValues();
 
-        if( $this->userRep->isAvailable( $values->mail ) ) {
-            return true;
-        } else {
-            return false;
-        }
+	    return $this->userRep->isAvailable( $values->mail );
     }
 }

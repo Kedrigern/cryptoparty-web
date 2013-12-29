@@ -24,9 +24,7 @@ final class AuthorPresenter extends \App\BasePresenter
 		$form = new \Nette\Application\UI\Form();
 		$form->addText('name', 'Jméno');
 		$form->addSubmit('save', 'Přidat');
-		$form->onSuccess[] = function() {
-
-		};
+		$form->onSuccess[] = $this->formSuccess;
 
 		return $form;
 	}

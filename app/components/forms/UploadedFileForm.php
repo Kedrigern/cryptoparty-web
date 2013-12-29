@@ -17,10 +17,10 @@ class UploadedFileForm extends Form
 	protected $uploadManager;
 
 	/**
-	 * @param UploadManager $um
+	 * @param Cryptoparty\UploadManager $um
 	 * @param int $id
 	 */
-	public function __construct(UploadManager $um, $id)
+	public function __construct(Cryptoparty\UploadManager $um, $id)
     {
         parent::__construct();
 
