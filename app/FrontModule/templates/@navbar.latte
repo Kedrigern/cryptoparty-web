@@ -1,0 +1,33 @@
+{**
+ * @param $user
+ *}
+
+<header class="navbar navbar-default" role="navigation">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" n:href="Homepage:">Cryptoparty.cz</a>
+	</div>
+	<div class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li><a n:href="Event:"><i class="glyphicon glyphicon-calendar"></i> Události</a></li>
+			<li><a n:href="Resource:"><i class="glyphicon glyphicon-file"></i> Materiály</a></li>
+			<li>
+				<a href="https://cryptoparty.in" title="Cryptoparty.in"><i class="glyphicon glyphicon-certificate"></i> CryptoParty (en)</a>
+			</li>
+			<li n:if="$user->isLoggedIn()">
+				<a n:href="User:"><i class="glyphicon glyphicon-user"></i> User</a>
+			</li>
+			<li n:if="$user->isAllowed('Admin:Home', 'default')">
+				<a n:href=":Admin:Home:"><i class="glyphicon glyphicon-wrench"></i> Admin</a>
+			</li>
+		</ul>
+		<div class="nav navbar-right hidden-xs">
+			<img src="{$basePath}/images/cryptoparty_header.png"/>
+		</div>
+	</div><!--/.nav-collapse -->
+</header>

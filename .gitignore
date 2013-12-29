@@ -5,6 +5,9 @@ temp/*
 vendor/*
 !vendor/others
 
+www/js/jquery.min.js
+www/bootstrap/*
+
 .DS_Store
 !.gitignore
 !.htaccess

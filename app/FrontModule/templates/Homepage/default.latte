@@ -22,7 +22,7 @@ Homepage
 <br />
 
 <div class="row">
-	<div class="span9">
+	<div class="col-md-9">
         <h1>Crypto zápisky</h1>
 		<br />
 		
@@ -31,7 +31,7 @@ Homepage
 	        <a n:href="Homepage:view $a->id">{$a->title}</a> <small>{$a->author->name}</small>
         </h2>
 
-		{!$a->perex_html}
+		{$a->perex_html|noescape}
 
         <small>
             <p>
@@ -46,25 +46,25 @@ Homepage
         <hr />
 		{/foreach}
     </div>
-	<div class="span3">
+	<div class="col-md-3 hidden-print">
 		<h1>Tagy</h1>
-		<a n:href="Tag:"> <i class="icon-tags"></i> všechny</a>
+		<a n:href="Tag:"> <span class="glyphicon glyphicon-tags"></span>&nbsp; všechny</a>
 		<h3>Nejpoužívanější</h3>
-        <ul n:inner-foreach="$mostUsed as $tag" class="unstyled">
+        <ul n:inner-foreach="$mostUsed as $tag" class="list-unstyled">
             <li>
 					{$tag->count}&times;
                 <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
             </li>
         </ul>
         <h3>Nejnovější</h3>
-        <ul n:inner-foreach="$newest as $tag" class="unstyled">
+        <ul n:inner-foreach="$newest as $tag" class="list-unstyled">
             <li>
 				{$tag->created|date:'%d. %m. %y'}
                 <a n:href="Tag:view $tag->id" title="{$tag->description}">{$tag->name}</a>
             </li>
         </ul>
 		<h1>Statistika</h1>
-		<ul class="unstyled">
+		<ul class="list-unstyled">
 			<li>{$articlesC} zápisků</li>
 			<li>{$resourceC} materiálů</li>
 			<li>{$authorC} autorů</li>

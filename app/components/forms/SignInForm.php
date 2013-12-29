@@ -15,9 +15,9 @@ class SignInForm extends Form
     private $userRep;
 
     /**
-     * @param UserRepository $userRep
+     * @param Cryptoparty\UserRepository $userRep
      **/
-    public function __construct(UserRepository $userRep)
+    public function __construct(Cryptoparty\UserRepository $userRep)
     {
         parent::__construct();
 

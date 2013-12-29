@@ -14,25 +14,30 @@
     </h1>
 
     <!-- Modal -->
-    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Přidání autora</h3>
-        </div>
-	    {form addForm}
-        <div class="modal-body">
-			{label name /}{input name}
-        </div>
-        <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	        {input save class => 'btn btn-primary'}
-        </div>
-	    {/form}
-    </div>
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Přidání autora</h4>
+				</div>
+				{form addForm}
+				<div class="modal-body">
+					<div class="modal-body">
+						{label name /}{input name}
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					{input save class => 'btn btn-primary'}
+				</div>
+				{/form}
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
     <p>
-        <a href="#myModal" role="button" class="btn" data-toggle="modal">
+        <a href="#myModal" role="button" class="btn btn-default btn-primary" data-toggle="modal">
             <i class="icon-plus"></i>
             Přidání nového autora
         </a>

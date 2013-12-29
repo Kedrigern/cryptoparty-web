@@ -1,24 +1,24 @@
-<div class="alert">
+<div class="alert alert-danger alert-dismissable">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>POZOR</strong> Vaše soubory nejsou zabezpečeny. Přes správnou url se k nim dostane každý.
 </div>
 
 <div class="row">
-    <div class="span1">
+    <div class="col-md-1">
     </div>
-    <div class="span2">
+    <div class="col-md-2">
         <h6>Jméno</h6>
     </div>
 
-    <div class="span3">
+    <div class="col-md-3">
         <h6>Popis</h6>
     </div>
 
-    <div class="span4">
+    <div class="col-md-4">
         <h6>Nahrát znovu</h6>
     </div>
 
-    <div class="span2">
+    <div class="col-md-2">
         <h6>Akce</h6>
     </div>
 </div>
@@ -26,19 +26,19 @@
 
 <div class="row" n:snippet="newUpload">
 {form uploadForm2}
-    <div class="span1">
-        <i class="icon-plus-sign"></i>
+    <div class="col-md-1">
+        <span class="glyphicon glyphicon-plus-sign"></span>
     </div>
-    <div class="span2">
+    <div class="col-md-2">
 		{input name}
     </div>
-    <div class="span3">
+    <div class="col-md-3">
 		{input description}
     </div>
-    <div class="span4">
+    <div class="col-md-4">
 		{input path}
     </div>
-    <div class="span2">
+    <div class="col-md-2">
 		{input send}
     </div>
 {/form}
@@ -48,23 +48,23 @@
 <div class="row" n:foreach="$uploads as $up">
 	{snippet uploads-$up->id}
 	{form uploadForm-$up->id, class => ajax }
-    <div class="span1">
+    <div class="col-md-1">
 		{if preg_match('#.*\.jpg#', $up->fileName)}
-            <a href="{$basePath}/uploads/general/{$up->fileName}" target="_blank"><i class="icon-eye-open"></i></a>
+            <a href="{$basePath}/uploads/general/{$up->fileName}" target="_blank"><i class="glyphicon glyphicon-eye-open"></i></a>
 			{else}
-            <a href="{$basePath}/uploads/general/{$up->fileName}" target="_blank"><i class="icon-file"></i></a>
+            <a href="{$basePath}/uploads/general/{$up->fileName}" target="_blank"><i class="glyphicon glyphicon-file"></i></a>
 		{/if}
     </div>
-    <div class="span2">
+    <div class="col-md-2">
 		{input name}
     </div>
-    <div class="span3">
+    <div class="col-md-3">
 		{input description}
     </div>
-    <div class="span4">
+    <div class="col-md-4">
 		{input path}
     </div>
-    <div class="span2">
+    <div class="col-md-2">
 		{input save}
         &nbsp;
 		{input delete}
@@ -79,10 +79,10 @@
 	{snippet multi}
 	{if is_null($multiUploadCount)}
 		{form startMulti, class => ajax}
-			<div class="span2 offset8">
+			<div class="col-md-2 offset8">
 				Přidat více: {input count}
 			</div>
-			<div class="span2">
+			<div class="col-md-2">
 				{input submit}
 			</div>
 		{/form}

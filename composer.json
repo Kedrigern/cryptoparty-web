@@ -14,9 +14,15 @@
 		"php": ">= 5.3.0",
 		"nette/nette": "v2.1.0-RC4",
 		"dg/adminer-custom": "1.*",
-		"dflydev/markdown": "1.0.*"
+		"dflydev/markdown": "1.0.*",
+		"twbs/bootstrap": "3.0.*",
+		"frameworks/jquery": "2.0.3"
 	},
 	"require-dev": {
 		"nette/tester": "@dev"
+	},
+	"scripts": {
+		"post-update-cmd": "cp -R vendor/twbs/bootstrap/dist www/bootstrap",
+		"post-update-cmd": "cp vendor/frameworks/jquery/jquery.min.js www/js"
 	}
 }

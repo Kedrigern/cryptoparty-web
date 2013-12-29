@@ -17,7 +17,7 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 		try {
 			$this->checkPermissions();
 		} catch(\Nette\Application\ForbiddenRequestException $e) {
-			$this->flashMessage('Pro přístup nemáte oprávnění.','error');
+			$this->flashMessage('Pro přístup nemáte oprávnění.','danger');
 			$this->redirect(':Front:Homepage:');
 		}
 	}

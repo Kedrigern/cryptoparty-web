@@ -11,7 +11,7 @@
 {block content}
 <h1 n:block="title">{$article->title}</h1>
 <div class="row">
-	<div class="span8">
+	<div class="col-md-8">
 		<br />
         <strong>
 	        {!$article->perex_html}
@@ -19,8 +19,8 @@
 		<br />
 		{!$article->text_html}
 		<br >    </div>
-	<div class="span4">
-		<h2 class="span3 offset1">Info</h2>
+	<div class="col-md-4">
+		<h2 class="col-md-3 offset1">Info</h2>
 		<dl class="dl-horizontal">
 			<dt>Autor</dt>
 			<dd>{$article->author->name}</dd>

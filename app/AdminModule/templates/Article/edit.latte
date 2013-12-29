@@ -17,55 +17,56 @@
     </div>
 
     <div class="row">
-        <div class="span10">
+        <div class="col-md-10">
             <div class="row-fluid">
-                <div class="span1">{label title /}</div>
-                <div class="span3">{input title}</div>
-                <div class="span1">{label author_id /}</div>
-                <div class="span4">{input author_id} <span class="pull-right">{input visible}</span></div>
-                <div class="span1">{label visible /}</div>
-	            <div class="span1"></div>
+                <div class="col-md-1">{label title /}</div>
+                <div class="col-md-3">{input title}</div>
+                <div class="col-md-1">{label author_id /}</div>
+                <div class="col-md-4">{input author_id} <col-md- class="pull-right">{input visible}</col-md-></div>
+                <div class="col-md-1">{label visible /}</div>
+	            <div class="col-md-1"></div>
             </div>
 	        <div class="row">
-                <div class="span5">{label perex_md /}</div>
-                <div class="span5">Náhled <i class="icon icon-eye-open"></i></div>
+                <div class="col-md-5">{label perex_md /}</div>
+                <div class="col-md-5">Náhled <i class="glyphicon glyphicon-eye-open"></i></div>
 	        </div>
-            <div class="row-fluid">
-                <div class="span5">
+            <div class="row">
+                <div class="col-md-5">
                     <div id="toolbar-perex" class="wmd-toolbar"></div>
                     <br />
 	                {input perex_md rows => 9, class => input-xlarge}
                 </div>
-                <div class="span7 well" id="preview-perex"></div>
+                <div class="col-md-7 well" id="preview-perex"></div>
             </div>
 
         </div>
-        <div class="span1">
-            <div class="row-fluid">
-                <div class="span1">{label tags /}</div>
+        <div class="col-md-1">
+            <div class="row">
+                <div class="col-md-1">{label tags /}</div>
             </div>
-            <div class="row-fluid">
-				{input tags class => input-medium, size => 15}
+            <div class="row">
+
+				{input tags class => form-control, size => 15}
             </div>
         </div>
     </div>
 	<div class="row">
-        <div class="span6">{label text_md /}</div>
-        <div class="span6">Náhled <i class="icon icon-eye-open"></i></div>
+        <div class="col-md-6">{label text_md /}</div>
+        <div class="col-md-6">Náhled <i class="glyphicon glyphicon-eye-open"></i></div>
     </div>
-    <div class="row-fluid">
-        <div class="span6">
+    <div class="row">
+        <div class="col-md-6">
             <div id="toolbar-text" class="wmd-toolbar"></div>
             <br />
-	        {input text_md rows => 17, class => input-xxlarge}
+	        {input text_md class => form-control, rows => 20}
         </div>
-        <div class="span6 well" id="preview-text"></div>
+        <div class="col-md-6 well" id="preview-text"></div>
     </div>
-	<div class="row form-actions">
-        <div class="span1">
+	<div class="row well">
+        <div class="col-md-1">
 		{input send}
 	    </div>
-        <div class="span1">
+        <div class="col-md-1">
             <a n:href="default" class="btn btn-warning btn-large">Zrušit</a>
         </div>
 	</div>

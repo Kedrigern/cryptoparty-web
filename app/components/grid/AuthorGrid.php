@@ -50,12 +50,11 @@ class AuthorNiftyGrid extends \NiftyGrid\Grid
 		$self = $this;
 
 		$this->addButton(\NiftyGrid\Grid::ROW_FORM, "Rychlá editace")
-			->setClass("fast-edit")
-			->setIcon('icon-pencil')
+			->setClass("btn btn-default fast-edit")
+			->setIcon('glyphicon glyphicon-pencil')
 			->setLabel('Editovat');
 
 		$this->setRowFormCallback(function($values){
-
 				$this->presenter->flashMessage("Řádek aktualizován " . var_dump($values), 'success');}
 		);
 	}

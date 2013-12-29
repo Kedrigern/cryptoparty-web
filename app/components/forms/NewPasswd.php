@@ -15,9 +15,9 @@ class NewPasswdForm extends Form
     private $userRep;
 
     /**
-     * @param UserRepository $rep
+     * @param Cryptoparty\UserRepository $rep
      **/
-    public function __construct( UserRepository $rep )
+    public function __construct( Cryptoparty\UserRepository $rep )
     {
         parent::__construct();
 

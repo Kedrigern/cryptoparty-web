@@ -39,3 +39,9 @@ table .table-center {
 .sign-form {
     min-height: 330px;
 }
+
+/* Added */
+.footer-logo {
+    width: 180px;
+    height: 180px;
+}

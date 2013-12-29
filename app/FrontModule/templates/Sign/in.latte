@@ -4,10 +4,17 @@
 
 <h1 n:block=title>Přihlášení</h1>
 
+{*{var_dump($var)}*}
 
-<div class="tabbable tabs-below ">
+{*<div class="nav nav-tabs">*}
 
-    <div class="tab-content">
+	{*<ul class="nav nav-tabs">
+		<li class="active"><a href="#signin" data-toggle="tab">Přihlášení</a></li>
+		<li><a href="#signup" data-toggle="tab">Registrace</a></li>
+		<li><a href="#newPasswd" data-toggle="tab">Zaslání nového hesla</a></li>
+	</ul>*}
+
+    <div {*class="tab-content"*}>
         <div class="tab-pane sign-form active" id="signin">
             {control signInForm}
         </div>
@@ -19,13 +26,7 @@
         </div>
     </div>
 
-    <ul class="nav nav-tabs">
-        <li class="active"><a href="#signin" data-toggle="tab">Přihlášení</a></li>
-        <li><a href="#signup" data-toggle="tab">Registrace</a></li>
-        <li><a href="#newPasswd" data-toggle="tab">Zaslání nového hesla</a></li>
-    </ul>
-
-</div>
+{*</div>*}
 
 {/block}
 
