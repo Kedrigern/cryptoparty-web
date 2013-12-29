@@ -22,8 +22,7 @@
 		"nette/tester": "@dev"
 	},
 	"scripts": {
-		"post-update-cmd": "cp -R vendor/twbs/bootstrap/dist www/bootstrap",
-		"post-update-cmd": "cp vendor/frameworks/jquery/jquery.min.js www/js",
-		"post-update-cmd": "cp vendor/nette/nette/client-side/netteForms.js www/js"
+		"post-install-cmd": "./deploy.sh",
+		"post-update-cmd": "./deploy.sh"
 	}
 }
