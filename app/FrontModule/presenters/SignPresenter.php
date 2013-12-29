@@ -13,11 +13,6 @@ class SignPresenter extends \App\BasePresenter
 	 */
 	public $repository;
 
-	public function renderIn()
-	{
-		$this->template->var = boolval($this->repository->isAvailable('ondrej.profant@gmail.com'));
-	}
-
     public function actionOut()
 	{
 		$this->getUser()->logout();
