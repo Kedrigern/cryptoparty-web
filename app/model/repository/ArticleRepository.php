@@ -6,8 +6,10 @@
 
 use Nette\InvalidArgumentException;
 
-class ArticleRepository extends Taggable
+class ArticleRepository extends BaseRepository
 {
+	use TTaggable;
+
     /**
      * @param \Nette\Database\Context
      */
@@ -38,7 +40,7 @@ class ArticleRepository extends Taggable
         unset($data['id']);
         unset($data['date_modified']);
 
-        $row = $this->conn
+        $row = $this->context
             ->table($this->tableName)
             ->get($id);
         if( $row == FALSE) {
@@ -56,7 +58,7 @@ class ArticleRepository extends Taggable
         unset($data['id']);
         unset($data['date_modified']);
 
-        return $this->conn->table($this->tableName)->insert($data);
+        return $this->context->table($this->tableName)->insert($data);
     }
 
 	/**
@@ -64,7 +66,7 @@ class ArticleRepository extends Taggable
 	 **/
 	public function publish($id)
 	{
-		$this->conn->table($this->tableName)->get($id)->update(array('visible' => TRUE));
+		$this->context->table($this->tableName)->get($id)->update(array('visible' => TRUE));
 	}
 
 	/**
@@ -72,7 +74,7 @@ class ArticleRepository extends Taggable
 	 **/
 	public function unpublish($id)
 	{
-		$this->conn->table($this->tableName)->get($id)->update(array('visible' => FALSE));
+		$this->context->table($this->tableName)->get($id)->update(array('visible' => FALSE));
 	}
 
 	public function count()

@@ -23,7 +23,7 @@ class AuthorRepository extends BaseRepository
 
     public function findPairs()
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('id, name')
             ->order('name')

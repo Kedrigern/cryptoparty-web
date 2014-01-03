@@ -4,10 +4,12 @@
  * @package Cryptoparty
  */
 
-class ResourceRepository extends Taggable
+class ResourceRepository extends BaseRepository
 {
+	use TTaggable;
+
     /**
-     * @param \Nette\Database\connection $conn
+     * @param \Nette\Database\Context $conn
      */
     public function __construct(\Nette\Database\Context $conn)
     {
@@ -23,7 +25,7 @@ class ResourceRepository extends Taggable
         unset($data['id']);
         unset($data['date_modified']);
 
-        return $this->conn->table($this->tableName)->insert($data);
+        return $this->context->table($this->tableName)->insert($data);
     }
 
 	/**
@@ -37,7 +39,7 @@ class ResourceRepository extends Taggable
         unset($data['id']);
         unset($data['date_modified']);
 
-        $row = $this->conn
+        $row = $this->context
             ->table($this->tableName)
             ->get($id);
         if( $row == FALSE) {

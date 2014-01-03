@@ -4,7 +4,7 @@
  * @package Cryptoparty
  */
 
-abstract class Taggable extends BaseRepository implements ITaggable
+trait TTaggable
 {
 	/**
 	 * @inheritdoc
@@ -19,7 +19,7 @@ abstract class Taggable extends BaseRepository implements ITaggable
 	/**
 	 * @inheritdoc
 	 */
-	public function getTagMapTablePrefix()
+	function getTagMapTablePrefix()
 	{
 		return 'tag_rel_';
 	}
@@ -54,9 +54,9 @@ abstract class Taggable extends BaseRepository implements ITaggable
 			foreach($insert as $i) {
 				$this->getTagTable()
 					->insert(
-					array('tag_id' => $i,
-					      $this->getTableName() . '_id' => $id)
-				);
+						array('tag_id' => $i,
+							$this->getTableName() . '_id' => $id)
+					);
 			}
 		}
 	}

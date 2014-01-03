@@ -4,8 +4,10 @@
  * @package Cryptoparty
  */
 
-class TagRepository extends Taggable
+class TagRepository extends BaseRepository
 {
+	use TTaggable;
+
     /**
      * @var int $limit
      */
@@ -33,7 +35,7 @@ class TagRepository extends Taggable
       */
     public function findItemsToTag($tagId, $itemName)
     {
-	    return $this->getConnection()
+	    return $this->getContext()
 		    ->table($itemName)
 		    ->select($itemName . '.*')
 		    ->where( ':' . $this->getTagMapTablePrefix() . $itemName . '.' . 'tag_id = ?', $tagId );
@@ -45,7 +47,7 @@ class TagRepository extends Taggable
      */
     public function findMostUsed()
     {
-       return $this->conn
+       return $this->context
 			->table( $this->tableName )
 			->select( '(COUNT(:tag_rel_article.tag_id) + COUNT(:tag_rel_resource.tag_id)) AS count')
 			->select( 'tag.*' )
@@ -60,7 +62,7 @@ class TagRepository extends Taggable
      */
     public function findNewest()
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('*')
             ->order('created DESC')
@@ -72,7 +74,7 @@ class TagRepository extends Taggable
 	 */
 	public function findPairs()
 	{
-		return $this->conn
+		return $this->context
 			->table($this->tableName)
 			->order('name')
 			->fetchPairs('id','name');

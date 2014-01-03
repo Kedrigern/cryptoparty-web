@@ -17,7 +17,7 @@ class UserRepository extends BaseRepository
      */
     public function GetByMail($mail)
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('*')
             ->where('mail = ?', $mail)
@@ -30,7 +30,7 @@ class UserRepository extends BaseRepository
      */
     public function login($mail, $failed = true)
     {
-        $row = $this->conn
+        $row = $this->context
             ->table($this->tableName)
             ->select('*')
             ->where('mail = ?', $mail)
@@ -50,7 +50,7 @@ class UserRepository extends BaseRepository
      */
     public function isAvailable($mail)
     {
-        $i = $this->conn
+        $i = $this->context
             ->table($this->tableName)
             ->select('id')
             ->where('mail = ?', $mail)
@@ -66,7 +66,7 @@ class UserRepository extends BaseRepository
      */
     public function registration($mail, $password)
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->insert( array(
                 'mail' => $mail,
@@ -82,7 +82,7 @@ class UserRepository extends BaseRepository
      */
     public function newPasswd($mail, $newPasswdHash)
     {
-        return $this->conn
+        return $this->context
             ->table( $this->tableName )
             ->where('mail = ?', $mail)
             ->update(array(

@@ -4,19 +4,22 @@
  * @package Cryptoparty
  */
 
-class BaseRepository extends \Nette\Object implements IBaseRepository
+/**
+ * Class BaseRepository
+ * @package Cryptoparty
+ * @method string getCanonizeName()
+ * @method string getTableName()
+ * @method \Nette\Database\Context getContext()
+ */
+abstract class BaseRepository extends \Nette\Object
 {
-    /**
-     * @var \Nette\Database\Context
-     */
-    protected $conn;
-    /**
-     * @var string
-     */
+    /** @var \Nette\Database\Context */
+    protected $context;
+
+    /** @var string */
     protected $tableName;
-    /**
-     * @var string canonize name in table (title, nickname, name etc.)
-     */
+
+	/** @var string canonize name in table (title, nickname, name etc.) */
     protected $canonizeName = 'name';
 
     /**
@@ -26,60 +29,40 @@ class BaseRepository extends \Nette\Object implements IBaseRepository
      */
     public function __construct( \Nette\Database\Context $conn, $tableName, $canonizeName = 'name' )
     {
-        $this->conn = $conn;
+        $this->context = $conn;
         $this->tableName = $tableName;
         $this->canonizeName = $canonizeName;
     }
 
 	/**
-	 * @inheritdoc
-	 */
-	public function getCanonizeName()
-	{
-		return $this->canonizeName;
-	}
-
-    /**
-     * @inheritdoc
-     **/
-    public function getTableName()
-    {
-        return $this->tableName;
-    }
-
-	/**
-	 * @inheritdoc
+	 * @return \Nette\Database\Table\Selection
 	 **/
 	public function getTable()
 	{
-		return $this->conn->table($this->getTableName());
+		return $this->context->table($this->getTableName());
 	}
 
 	/**
-	 * @inheritdoc
-	 **/
-	public function getConnection()
-	{
-		return $this->conn;
-	}
-
-    /**
-     * @inheritdoc
-     */
+	 * Returns row by primary key
+	 * @param int $id
+	 * @return \Nette\Database\Table\ActiveRow
+	 */
     public function get($id)
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('*')
             ->get($id);
     }
 
-    /**
-     * @inheritdoc
-     */
+	/**
+	 * Returns row by canonize name
+	 * @param string $name
+	 * @return \Nette\Database\Table\ActiveRow
+	 */
     public function find($name)
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('*')
             ->where($this->canonizeName.' = ?', $name)
@@ -95,7 +78,7 @@ class BaseRepository extends \Nette\Object implements IBaseRepository
      */
     public function findAll($offset = 0, $limit = 100, $order = null, $where = null)
     {
-        $base = $this->conn
+        $base = $this->context
             ->table($this->tableName)
             ->select('*')
             ->limit($limit, $offset);
@@ -115,14 +98,15 @@ class BaseRepository extends \Nette\Object implements IBaseRepository
      */
     public function findBy($condition, $parameters)
     {
-        return $this->conn
+        return $this->context
             ->table($this->tableName)
             ->select('*')
             ->where( $condition, $parameters );
     }
 
 	/**
-	 * {@inheritdoc}
+	 * Return number of active/visible items in repo
+	 * @return int
 	 */
 	public function count()
 	{
