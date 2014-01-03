@@ -12,14 +12,14 @@
 	],
 	"require": {
 		"php": ">= 5.3.0",
-		"nette/nette": "v2.1.0-RC4",
+		"nette/nette": "2.1.*",
 		"dg/adminer-custom": "1.*",
 		"dflydev/markdown": "1.0.*",
 		"twbs/bootstrap": "3.0.*",
-		"frameworks/jquery": "2.0.3"
+		"frameworks/jquery": "2.0.*"
 	},
 	"require-dev": {
-		"nette/tester": "@dev"
+		"nette/tester": "0.9.*"
 	},
 	"scripts": {
 		"post-install-cmd": "./deploy.sh",
