@@ -6,26 +6,26 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" n:href=":Front:Homepage:">Cryptoparty.cz</a>
+		<a class="navbar-brand" n:href=":Front:Homepage:" title="Veřejná část webu">Cryptoparty.cz</a>
 	</div>
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li>
+			<li n:class="$control->isLinkCurrent('Home:*') ? active">
 				<a n:href="Home:">Admin home</a>
 			</li>
-			<li>
+			<li n:class="$control->isLinkCurrent('Article:*') ? active">
 				<a n:href="Article:">Crypto zápisky</a>
 			</li>
-			<li>
+			<li n:class="$control->isLinkCurrent('Resource:*') ? active">
 				<a n:href="Resource:">Materiály</a>
 			</li>
-			<li>
+			<li n:class="$control->isLinkCurrent('Upload:*') ? active">
 				<a n:href="Upload:">Uploads</a>
 			</li>
-			<li>
+			<li n:class="$control->isLinkCurrent('Author:*') ? active">
 				<a n:href="Author:">Autoři</a>
 			</li>
-			<li>
+			<li n:class="$control->isLinkCurrent('Tag:*') ? active">
 				<a n:href="Tag:">Tag</a>
 			</li>
 		</ul>

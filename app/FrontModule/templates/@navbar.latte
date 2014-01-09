@@ -14,8 +14,8 @@
 	</div>
 	<div class="navbar-collapse collapse">
 		<ul class="nav navbar-nav">
-			<li><a n:href="Event:"><i class="glyphicon glyphicon-calendar"></i> Události</a></li>
-			<li><a n:href="Resource:"><i class="glyphicon glyphicon-file"></i> Materiály</a></li>
+			<li n:class="$control->isLinkCurrent('Event:*') ? active"><a n:href="Event:"><i class="glyphicon glyphicon-calendar"></i> Události</a></li>
+			<li n:class="$control->isLinkCurrent('Resource:*') ? active"><a n:href="Resource:"><i class="glyphicon glyphicon-file"></i> Materiály</a></li>
 			<li>
 				<a href="https://cryptoparty.in" title="Cryptoparty.in"><i class="glyphicon glyphicon-certificate"></i> CryptoParty (en)</a>
 			</li>
