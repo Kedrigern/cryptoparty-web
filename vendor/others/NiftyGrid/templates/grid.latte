@@ -33,7 +33,7 @@
 					{/foreach}
 				</div>
 				<div class="grid-upper-info">
-					<a n:href="this" class="grid-current-link icon-bookmark" title="Získat odkaz na tuto stránku"></a>
+					<a n:href="this" class="grid-current-link glyphicon glyphicon--bookmark" title="Získat odkaz na tuto stránku"></a>
 					<div class="grid-results">
 						celkem {$results} {($results == 1) ? "záznam" : (($results >= 2 && $results <= 4) ? "záznamy" : "záznamů")}{if $paginate} {if (boolean)$results}(Zobrazeno {$viewedFrom} až {$viewedTo}){/if}{/if}
 					</div>
@@ -49,8 +49,8 @@
 		<th n:foreach="$subGrids as $subGrid" style="width: 26px;" class="grid-head-column"></th>
 		<th n:foreach="$columns as $column" n:attr="style => $column->width ? 'width: '.$column->width.';'" class="grid-head-column">{if $control->hasEnabledSorting() && $column->isSortable()}{var $order = ($control->order == $column->name.' ASC') ? " DESC" : " ASC"}<a n:href="this, 'order' => $column->name.$order" class="grid-ajax grid-label" title="Obrátit řazení">{$column->label}</a>{else}{$column->label}{/if}
 			<span class="grid-order" n:if="$column->isSortable() && $control->hasEnabledSorting()">
-				  <a n:href="this, 'order' => $column->name.' ASC'" n:class="grid-ajax, grid-order-up ,($control->order && ($control->order == $column->name.' ASC')) ? active" title="Řadit vzestupně"><i class="icon-chevron-up"></i></a>
-					<a n:href="this, 'order' => $column->name.' DESC'" n:class="grid-ajax, grid-order-down ,($control->order && ($control->order == $column->name.' DESC')) ? active" title="Řadit sestupně"><i class="icon-chevron-down"></i></a>
+				  <a n:href="this, 'order' => $column->name.' ASC'" n:class="grid-ajax, grid-order-up ,($control->order && ($control->order == $column->name.' ASC')) ? active" title="Řadit vzestupně"><i class="glyphicon glyphicon--chevron-up"></i></a>
+					<a n:href="this, 'order' => $column->name.' DESC'" n:class="grid-ajax, grid-order-down ,($control->order && ($control->order == $column->name.' DESC')) ? active" title="Řadit sestupně"><i class="glyphicon glyphicon--chevron-down"></i></a>
 				</span>
 		</th>
 		<th n:if="$control->hasButtons() || $control->hasFilterForm()" class="grid-head-column">Akce</th>
@@ -66,7 +66,7 @@
 		<th class="grid-filter-form">
 			{? $control['gridForm'][$control->name]['filter']['send']->setAttribute('class', 'btn btn-primary')}
 			{$control['gridForm'][$control->name]['filter']['send']->getControl()}
-			<a n:if="$control->hasActiveFilter()" n:href="this, filter => NULL, paginator-page => NULL" title="Zrušit filtr" class="btn btn-small btn-danger grid-filter-reset grid-ajax"><i class="icon-remove icon-white"></i></a>
+			<a n:if="$control->hasActiveFilter()" n:href="this, filter => NULL, paginator-page => NULL" title="Zrušit filtr" class="btn btn-small btn-danger grid-filter-reset grid-ajax"><i class="glyphicon glyphicon--remove glyphicon glyphicon--white"></i></a>
 		</th>
 	</tr>
 	</thead>
@@ -82,7 +82,7 @@
 		<td class="grid-row-cell grid-edited-cell">
 			{? $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success')}
 			{$control['gridForm'][$control->name]['rowForm']['send']->getControl()}
-			<a class="grid-rowForm-cancel grid-ajax btn btn-small btn-danger" n:href="this" title="Zrušit editaci"><i class="icon-remove icon-white"></i></a>
+			<a class="grid-rowForm-cancel grid-ajax btn btn-small btn-danger" n:href="this" title="Zrušit editaci"><i class="glyphicon glyphicon--remove glyphicon glyphicon--white"></i></a>
 		</td>
 	</tr>
 		{if count($rows)}
@@ -103,7 +103,7 @@
 					{if $control->activeRowForm == $row[$primaryKey] && $control->isEditable()}
 						{? $control['gridForm'][$control->name]['rowForm']['send']->setAttribute('class', 'btn btn-success')}
 						{$control['gridForm'][$control->name]['rowForm']['send']->getControl()}
-						<a class="grid-rowForm-cancel grid-ajax btn btn-small btn-danger" n:href="this" title="Zrušit editaci"><i class="icon-remove icon-white"></i></a>
+						<a class="grid-rowForm-cancel grid-ajax btn btn-small btn-danger" n:href="this" title="Zrušit editaci"><i class="glyphicon glyphicon-remove glyphicon glyphicon--white"></i></a>
 						{$control['gridForm'][$control->name]['rowForm'][$primaryKey]->getControl()}
 						{else}
 						<div class="btn-group">
