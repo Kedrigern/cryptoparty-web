@@ -43,6 +43,10 @@ class AuthorNiftyGrid extends \NiftyGrid\Grid
 		$this->addColumn('name', 'Jméno')
 			->setDateEditable()
 			->setDateFilter();
+
+		$this->addColumn('about_md', 'Popis')
+			->setDateEditable()
+			->setDateFilter();
 	}
 
 	protected function configureButtons()
