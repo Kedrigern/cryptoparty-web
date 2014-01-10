@@ -69,6 +69,7 @@ class ResourceEditForm extends Form
 			->setAttribute('class', 'btn btn-primary');
 		$this->onSuccess[] = $this->editSuccess;
 
+		BootstrapRenderer::set($this);
 	}
 
 	/**

@@ -38,6 +38,8 @@ class NewPasswdForm extends Form
             ->setAttribute('class', 'btn btn-primary');
 
         $this->onSuccess[] = $this->newPasswdSucceeded;
+
+	    BootstrapRenderer::set($this);
     }
 
 	/**

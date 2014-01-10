@@ -41,6 +41,8 @@ class SignInForm extends Form
         $this->onValidate[] = $this->mailExists;
 
         $this->onSuccess[] = $this->signInFormSucceeded;
+
+	    BootstrapRenderer::set($this);
     }
 
     /**

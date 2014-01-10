@@ -41,6 +41,8 @@ class RegistrationForm extends Form
 
         $this->onValidate[] = $this->isAvailable;
         $this->onSuccess[] = $this->RegistrationSucceeded;
+
+		BootstrapRenderer::set($this);
     }
 
     /**
